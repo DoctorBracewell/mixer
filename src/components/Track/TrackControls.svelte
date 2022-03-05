@@ -1,13 +1,10 @@
 <script lang="ts">
-  import { tracks as tracksStore } from "../../stores";
+  import type { Track } from "src/tracks";
 
   import { sleep } from "../../utils";
   import TrackImage from "./TrackImage.svelte";
 
-  export let trackIndex: number;
-
-  let track = $tracksStore[trackIndex];
-  $: track = $tracksStore[trackIndex];
+  export let track: Track;
 
   // track.howl.play();
   track.volume = Math.round(Math.random()) / 2;
