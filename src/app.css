@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .range-slider::-moz-range-thumb {
+    @apply appearance-none bg-white w-5 h-5 rounded-full cursor-pointer;
+  }
+
+  .range-slider::-webkit-slider-thumb {
+    @apply appearance-none bg-white w-5 h-5 rounded-full cursor-pointer;
+  }
+
+  .loader {
+    @apply block relative overflow-hidden;
+    width: 90%;
+    height: 4.8px;
+    margin: 2rem auto;
+  }
+
+  .loader::after {
+    @apply bg-white absolute top-0 left-0 box-border;
+    content: "";
+    width: 96px;
+    height: 4.8px;
+    animation: loading 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      left: 0;
+      transform: translateX(-1%);
+    }
+    100% {
+      left: 100%;
+      transform: translateX(-99%);
+    }
+  }
+
+  .control-button svg path {
+    color: white;
+  }
+}
