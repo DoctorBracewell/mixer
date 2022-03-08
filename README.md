@@ -16,10 +16,8 @@
 - Website: https://brace.dev
 - Github: [@DoctorBracewell](https://github.com/DoctorBracewell)
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+Feel free to ⭐️ the repo if you thought this site was cool!
+
+~ Brace
