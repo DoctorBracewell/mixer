@@ -1,26 +1,16 @@
 <script lang="ts">
-  import type { Track } from "src/tracks";
+  import type { Track } from "../../tracks";
+  import { forEachTrack } from "../../utils";
   import Icon from "./Icon.svelte";
 
   export let tracks: Track[];
 
-  let paused = false;
-
   const handleClick = () => {
-    if (paused) {
-      for (let track of tracks.filter((t) => !t.howl.playing())) {
-        track.howl.play();
-      }
-    } else {
-      for (const track of tracks.filter((t) => t.howl.playing())) {
-        track.howl.pause();
-      }
-    }
-
-    paused = !paused;
+    forEachTrack(tracks, (track) => track.togglePlaying());
+    tracks = tracks;
   };
 </script>
 
 <div on:click={handleClick}>
-  <Icon iconName={paused ? "play" : "pause"} />
+  <Icon iconName={tracks.every((track) => track.playing) ? "pause" : "play"} />
 </div>

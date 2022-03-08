@@ -6,7 +6,7 @@
   export let tracks: Track[];
 </script>
 
-<div class="p-10 h-screen w-screen flex flex-col">
+<div class="p-10 h-full w-full flex flex-col">
   <ControlBar bind:tracks />
 
   <div class="flex-wrap flex justify-center flex-grow">

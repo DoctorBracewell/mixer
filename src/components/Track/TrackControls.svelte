@@ -1,41 +1,41 @@
 <script lang="ts">
   import type { Track } from "src/tracks";
-
-  import { sleep } from "../../utils";
+  import { onDestroy } from "svelte";
   import TrackImage from "./TrackImage.svelte";
 
+  // Include the track as a prop and start playing it when this component is loaded (not necesarily mounted)
   export let track: Track;
+  track.togglePlaying();
 
-  // track.howl.play();
-  track.volume = Math.round(Math.random()) / 2;
+  // Subscribe to changes in the volume store and store in a local variable
+  let volume;
+  const unsubscribe = track.volumeStore.subscribe((value) => (volume = value));
 
-  const mute = async () => {
-    // Rise up to 50% volume if currently at 0
-    if (track.volume === 0) {
-      while (track.volume < 0.5) {
-        track.volume += 0.01;
+  // Don't forget to unsubscribe!
+  onDestroy(() => {
+    if (unsubscribe) unsubscribe();
+  });
 
-        await sleep(1);
-      }
+  const handleVolumeChange = (event: Event) => {
+    //  Set the volume to the float value of the input
+    const target = event.target as HTMLInputElement;
+    track.volume = parseFloat(target.value);
 
-      track.volume = 0.5;
-    }
-    // Lower to 0% volume if not currently 0%
-    else {
-      while (track.volume > 0) {
-        track.volume -= 0.01;
-        await sleep(1);
-      }
+    // We must update the track variable to send updates up the component tree so other components can rerender
+    track = track;
+  };
 
-      track.volume = 0;
-    }
+  const handleToggleMute = async () => {
+    await track.toggle();
+
+    track = track;
   };
 </script>
 
 <div class="flex h-full w-full justify-start">
   <div class="m-auto">
-    <div on:click={mute} class="relative top-0 left-0 h-60 w-60">
-      <TrackImage {track} />
+    <div on:click={handleToggleMute} class="relative top-0 left-0 h-60 w-60">
+      <TrackImage name={track.name} {volume} />
     </div>
 
     <div class="flex flex-row mx-auto">
@@ -45,10 +45,11 @@
         min="0"
         max="1"
         step="0.01"
-        bind:value={track.volume}
+        on:input={handleVolumeChange}
+        value={volume}
       />
 
-      <span class="pl-3 w-10 font-sans">{Math.round(track.volume * 100)}%</span>
+      <span class="pl-3 w-10">{Math.round(volume * 100)}%</span>
     </div>
   </div>
 </div>

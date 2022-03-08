@@ -11,7 +11,9 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
+    "@types/howler": "^2.2.5",
     "autoprefixer": "^10.4.2",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.5",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
@@ -22,7 +24,6 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
-    "howler": "^2.2.3",
-    "svelte-asyncable": "^2.0.4"
+    "howler": "^2.2.3"
   }
 }

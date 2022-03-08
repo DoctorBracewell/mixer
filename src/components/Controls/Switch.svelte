@@ -5,14 +5,9 @@
 
   export let tracks: Track[];
 
-  const handleClick = () =>
-    forEachTrack(tracks, (track) =>
-      track.toggle({
-        random: true,
-      })
-    );
+  const handleClick = () => forEachTrack(tracks, (track) => track.toggle());
 </script>
 
 <div on:click={handleClick}>
-  <Icon iconName="shuffle" />
+  <Icon iconName="switch" />
 </div>

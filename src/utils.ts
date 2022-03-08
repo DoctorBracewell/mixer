@@ -1,4 +1,7 @@
-export const blobToBase64 = (blob): Promise<ArrayBuffer> => {
+import type { Track } from "./tracks";
+
+// Convert a blob to a base64 array buffer
+export const blobToBase64 = (blob: Blob): Promise<ArrayBuffer> => {
   const reader = new FileReader();
   reader.readAsDataURL(blob);
 
@@ -13,6 +16,13 @@ export const blobToBase64 = (blob): Promise<ArrayBuffer> => {
   });
 };
 
+// Artifical sleep function
 export const sleep = async (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
+// Take in an array of tracks and run a callback function on each one.
+export const forEachTrack = async (
+  tracks: Track[],
+  callback: (track: Track) => void
+) => await Promise.all(tracks.map(async (track) => callback(track)));
