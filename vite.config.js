@@ -8,4 +8,5 @@ export default defineConfig({
     hot: false,
     liveReload: false,
   },
+  base: "./",
 });
