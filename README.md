@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to travelers 👋</h1>
+<h1 align="center">Travelers</h1>
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/DoctorBracewell/travelers?style=for-the-badge" />
