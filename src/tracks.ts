@@ -8,6 +8,7 @@ interface ToggleOptions {
   random?: boolean;
   muting?: boolean;
 }
+
 export class Track {
   private howl: Howl;
   private _volume: Writable<number>;
