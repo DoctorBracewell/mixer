@@ -124,7 +124,7 @@ export async function downloadTracks() {
         new TrackFile(
           track,
 
-          await fetch(`https://static.brace.dev/travellers/${track}.wav`)
+          await fetch(`https://static.brace.dev/travellers/${track}.flac`)
             .then((res) => res.blob())
             // Convert to base64 because that is the only raw data format supported by Howler
             .then(blobToBase64)
