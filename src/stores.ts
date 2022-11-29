@@ -1,15 +1,35 @@
 import { writable } from "svelte/store";
-import trackData from "./trackData.json";
+import trackData from "./songs.json";
 
-export interface Song {
-  source: string;
-  song: string;
-  artist: {
+export class Song {
+  public artist: {
     name: string;
     link: string;
   };
-  tracks: TrackData[];
+  public tracks: TrackData[];
+
+  constructor(public source: string, public song: string) {
+    const songData = trackData[source].songs[song];
+
+    this.source = source;
+    this.song = song;
+    this.artist = songData.artist;
+    this.tracks = songData.tracks;
+
+    this.saveToLocalStorage();
+  }
+
+  saveToLocalStorage() {
+    localStorage.setItem(
+      "song",
+      JSON.stringify({
+        source: this.source,
+        song: this.song,
+      })
+    );
+  }
 }
+
 export interface TrackData {
   name: string;
   type: string;
@@ -17,17 +37,8 @@ export interface TrackData {
 
 export const appStarted = writable(false);
 
-export const currentSong = writable<Song>(
-  nameToSong("outer_wilds", "travelers")
-);
+const { source, song } = localStorage.getItem("song")
+  ? JSON.parse(localStorage.getItem("song") as string)
+  : { source: "outer_wilds", song: "travelers" };
 
-function nameToSong(source: string, name: string) {
-  const song = trackData[source].songs[name];
-
-  return {
-    source: source,
-    song: song.name,
-    artist: song.artist,
-    tracks: song.tracks,
-  };
-}
+export const currentSong = writable(new Song(source, song));

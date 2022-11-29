@@ -24,6 +24,7 @@
     "vite": "^3.1.8"
   },
   "dependencies": {
-    "howler": "^2.2.3"
+    "howler": "^2.2.3",
+    "sv-popup": "^0.2.5"
   }
 }

@@ -1,5 +1,5 @@
-import type { Song } from "./stores";
 import type { Writable } from "svelte/store";
+import type { Song } from "./stores";
 import { writable, get } from "svelte/store";
 import { Howl } from "howler";
 import { blobToBase64, sleep } from "./utils";
@@ -106,6 +106,10 @@ export class Track {
 
     // If we definitely want to set volume > 0 but don't have a value, deafult to 0.5
     return this.previousVolume ?? 0.5;
+  }
+
+  destroy() {
+    this.howl.unload();
   }
 }
 

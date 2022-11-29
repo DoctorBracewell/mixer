@@ -2,8 +2,15 @@
   import ControlBar from "./Controls/ControlBar.svelte";
   import TrackControls from "./Track/TrackControls.svelte";
   import type { Track } from "../tracks";
+  import { onDestroy } from "svelte";
 
   export let tracks: Track[];
+
+  onDestroy(() => {
+    for (const track of tracks) {
+      track.destroy();
+    }
+  });
 </script>
 
 <div class="p-10 h-full w-full flex flex-col">

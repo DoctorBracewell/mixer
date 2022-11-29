@@ -6,10 +6,11 @@
   import { downloadTracks } from "../tracks";
   import Loading from "./Loading.svelte";
   import Footer from "./Footer/Footer.svelte";
+  import Modal from "./SongList/Modal.svelte";
 </script>
 
 <main class="bg-black h-fit min-h-screen relative">
-  <div class="z-[10000] fixed flex">
+  <div class="fixed flex w-full justify-between">
     <div class="m-2 md:m-6">
       <a
         class="w-5"
@@ -23,6 +24,8 @@
         /></a
       >
     </div>
+
+    <Modal />
   </div>
 
   {#await downloadTracks($currentSong)}
