@@ -4,10 +4,15 @@
 
   import { appStarted, currentSong } from "../stores";
   import { downloadTracks } from "../tracks";
+  import { capitalise } from "../utils";
   import Loading from "./Loading.svelte";
   import Footer from "./Footer/Footer.svelte";
   import Modal from "./SongList/Modal.svelte";
 </script>
+
+<svelte:head>
+  <title>{capitalise($currentSong.song)}</title>
+</svelte:head>
 
 <main class="bg-black h-fit min-h-screen relative">
   <div class="fixed flex w-full justify-between">
