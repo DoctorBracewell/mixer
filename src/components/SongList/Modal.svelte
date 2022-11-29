@@ -63,7 +63,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url("img/icons/play.png");
+    background-image: url("assets/img/icons/play.png");
     vertical-align: inherit;
   }
 </style>

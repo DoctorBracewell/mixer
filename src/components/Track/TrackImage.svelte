@@ -7,13 +7,13 @@
 
 <div class="flex flex-col h-full relative justify-end">
   <img
-    src={`img/outline/${$currentSong.source}/${name}.png`}
+    src={`assets/img/outline/${$currentSong.source}/${name}.png`}
     alt={name}
     class="w-60 h-60 cursor-pointer absolute"
   />
   <img
     style:opacity={volume * 2}
-    src={`img/solid/${$currentSong.source}/${name}.png`}
+    src={`assets/img/solid/${$currentSong.source}/${name}.png`}
     alt={name}
     class="w-60 h-60 cursor-pointer absolute"
   />
