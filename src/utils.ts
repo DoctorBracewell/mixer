@@ -26,3 +26,9 @@ export const forEachTrack = async (
   tracks: Track[],
   callback: (track: Track) => void
 ) => await Promise.all(tracks.map(async (track) => callback(track)));
+
+export const capitalise = (str: string) =>
+  str
+    .split("_")
+    .map((word) => word.charAt(0).toLocaleUpperCase() + word.slice(1))
+    .join(" ");

@@ -1,4 +1,5 @@
 import type { Writable } from "svelte/store";
+import type { Song } from "./stores";
 import { writable, get } from "svelte/store";
 import { Howl } from "howler";
 import { blobToBase64, sleep } from "./utils";
@@ -16,11 +17,13 @@ export class Track {
 
   constructor(
     public name: string,
+    public type: string,
     file: any,
     public playing: boolean,
     public muted: boolean
   ) {
     this.name = name;
+    this.type = type;
     this.howl = new Howl({
       src: file,
       loop: true,
@@ -104,28 +107,43 @@ export class Track {
     // If we definitely want to set volume > 0 but don't have a value, deafult to 0.5
     return this.previousVolume ?? 0.5;
   }
+
+  destroy() {
+    this.howl.unload();
+  }
 }
 
 // Intermediate class between `trackNames: string[]` the `tracks: Track[]` array
 class TrackFile {
-  constructor(public name: string, public file: ArrayBuffer) {
+  constructor(
+    public name: string,
+    public type: string,
+    public file: ArrayBuffer
+  ) {
     this.name = name;
+    this.type = type;
     this.file = file;
   }
 }
 
 // Asynchronously load the tracks from the static host
-export async function downloadTracks() {
+export async function downloadTracks({ source, song, tracks }: Song) {
   // Convert to an array of Promise<Response> objects, to be awaited in the App component
   // This is so a Loading component can be displayed using sveltes {#await} syntax whilst
   // the tracks are being downloaded
   const soundFiles = await Promise.all(
-    trackNames.map(
-      async (track) =>
+    tracks.map(
+      async ({ name, type }) =>
         new TrackFile(
-          track,
-
-          await fetch(`https://static.brace.dev/travellers/${track}.flac`)
+          name,
+          type,
+          await fetch(
+            `https://static.brace.dev/mixer/${source}/${song}/${[
+              name,
+              type,
+              "flac",
+            ].join(".")}`
+          )
             .then((res) => res.blob())
             // Convert to base64 because that is the only raw data format supported by Howler
             .then(blobToBase64)
@@ -133,21 +151,7 @@ export async function downloadTracks() {
     )
   );
 
-  // And then once the files have been downloaded return as an array of Track objects that are NOT playing and NOT muted
   return soundFiles.map(
-    ({ name, file }) => new Track(name, file, false, false)
+    ({ name, file, type }) => new Track(name, type, file, false, false)
   );
 }
-
-// Entry point for all 7 tracks - these names are the only data about the tracks stored in the entire app
-// They are used to fetch the .wav files from the static file host, the images from the static file folder and
-// as identifiers for all other instances of the tracks such as components or images in the app.
-export const trackNames = [
-  "drums",
-  "whistling",
-  "banjo",
-  "flute",
-  "harmonica",
-  "piano",
-  "stranger",
-];
