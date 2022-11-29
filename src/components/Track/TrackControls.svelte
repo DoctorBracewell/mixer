@@ -33,12 +33,20 @@
 </script>
 
 <div class="flex h-full w-full justify-start">
-  <div class="m-auto">
-    <div on:click={handleToggleMute} class="relative top-0 left-0 h-60 w-60">
+  <div class="m-auto flex flex-col">
+    {#if track.type !== "solo"}
+      <span class="mx-auto mb-2">{track.type}</span>
+    {/if}
+
+    <div
+      on:click={handleToggleMute}
+      on:keypress={handleToggleMute}
+      class="relative top-0 left-0 h-60 w-60"
+    >
       <TrackImage name={track.name} {volume} />
     </div>
 
-    <div class="flex flex-row mx-auto">
+    <div class="flex flex-row w-full">
       <input
         class="mx-auto w-11/12 appearance-none h-[5px] rounded-md m-auto bg-white range-slider cursor-pointer"
         type="range"

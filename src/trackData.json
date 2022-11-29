@@ -1,0 +1,90 @@
+{
+  "sea_of_thieves": {
+    "name": "sea_of_thieves",
+    "songs": {
+      "bosun_bill": {
+        "name": "bosun_bill",
+        "artist": {
+          "name": "",
+          "link": ""
+        },
+        "tracks": [
+          {
+            "name": "banjo",
+            "type": "lead"
+          },
+          {
+            "name": "banjo",
+            "type": "backing"
+          },
+          {
+            "name": "concertina",
+            "type": "lead"
+          },
+          {
+            "name": "concertina",
+            "type": "backing"
+          },
+          {
+            "name": "drum",
+            "type": "lead"
+          },
+          {
+            "name": "drum",
+            "type": "backing"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "lead"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "backing"
+          }
+        ]
+      }
+    }
+  },
+  "outer_wilds": {
+    "name": "outer_wilds",
+    "songs": {
+      "travelers": {
+        "name": "travelers",
+        "artist": {
+          "name": "Andrew Prahlow",
+          "link": "http://www.andrewprahlow.com/"
+        },
+        "tracks": [
+          {
+            "name": "drums",
+            "type": "solo"
+          },
+          {
+            "name": "whistling",
+            "type": "solo"
+          },
+          {
+            "name": "banjo",
+            "type": "solo"
+          },
+          {
+            "name": "harmonica",
+            "type": "solo"
+          },
+          {
+            "name": "flute",
+            "type": "solo"
+          },
+          {
+            "name": "piano",
+            "type": "solo"
+          },
+          {
+            "name": "stranger",
+            "type": "solo"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Link from "./Link.svelte";
+  import { currentSong } from "../../stores";
 </script>
 
 <footer class="absolute -bottom-24 md:bottom-0 w-full">
@@ -22,8 +23,8 @@
     >
       <p class="mt-auto mx-auto text-base md:text-2xl">
         Music by <Link
-          display="Andrew Prahlow"
-          url="http://www.andrewprahlow.com/"
+          display={$currentSong.artist.name}
+          url={$currentSong.artist.link}
         />
       </p>
     </div>
