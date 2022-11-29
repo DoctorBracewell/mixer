@@ -18,7 +18,7 @@ export interface TrackData {
 export const appStarted = writable(false);
 
 export const currentSong = writable<Song>(
-  nameToSong("sea_of_thieves", "bosun_bill")
+  nameToSong("outer_wilds", "travelers")
 );
 
 function nameToSong(source: string, name: string) {

@@ -15,6 +15,7 @@
         class="w-5"
         href="https://www.buymeacoffee.com/drbracewell"
         target="_blank"
+        rel="noreferrer"
         ><img
           src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
           alt="Buy Me A Coffee"
