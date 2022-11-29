@@ -3,17 +3,23 @@
 
   export let name: string;
   export let volume: number;
+
+  const outlineUrl = new URL(
+    `../../../assets/img/outline/${$currentSong.source}/${name}.png`,
+    import.meta.url
+  ).href;
+
+  const solidUrl = new URL(
+    `../../../assets/img/solid/${$currentSong.source}/${name}.png`,
+    import.meta.url
+  ).href;
 </script>
 
 <div class="flex flex-col h-full relative justify-end">
-  <img
-    src={`assets/img/outline/${$currentSong.source}/${name}.png`}
-    alt={name}
-    class="w-60 h-60 cursor-pointer absolute"
-  />
+  <img src={outlineUrl} alt={name} class="w-60 h-60 cursor-pointer absolute" />
   <img
     style:opacity={volume * 2}
-    src={`assets/img/solid/${$currentSong.source}/${name}.png`}
+    src={solidUrl}
     alt={name}
     class="w-60 h-60 cursor-pointer absolute"
   />

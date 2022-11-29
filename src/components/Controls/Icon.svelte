@@ -4,6 +4,6 @@
 
 <img
   alt={iconName}
-  src={`img/icons/${iconName}.png`}
+  src={`icons/${iconName}.png`}
   class="control-button cursor-pointer h-9"
 />
