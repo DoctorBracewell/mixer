@@ -1,10 +1,8 @@
 <script lang="ts">
   export let iconName: string;
 
-  const iconUrl = new URL(
-    `../../../assets/icons/${iconName}.png`,
-    import.meta.url
-  ).href;
+  $: iconUrl = new URL(`../../../assets/icons/${iconName}.png`, import.meta.url)
+    .href;
 </script>
 
 <img
