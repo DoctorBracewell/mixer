@@ -8,7 +8,7 @@
   export let tracks: Track[];
 </script>
 
-<div class="mx-auto my-2 flex w-5/6 md:w-1/2 justify-evenly z-50">
+<div class="mx-auto my-10 md:my-2 flex w-5/6 md:w-1/2 justify-evenly z-50">
   <PlayPause bind:tracks />
   <Shuffle bind:tracks />
   <Switch bind:tracks />
