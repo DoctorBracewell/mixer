@@ -1,9 +1,14 @@
 <script lang="ts">
   export let iconName: string;
+
+  const iconUrl = new URL(
+    `../../../assets/icons/${iconName}.png`,
+    import.meta.url
+  ).href;
 </script>
 
 <img
   alt={iconName}
-  src={`icons/${iconName}.png`}
+  src={iconUrl}
   class="control-button cursor-pointer h-9 transition-transform hover:scale-110"
 />

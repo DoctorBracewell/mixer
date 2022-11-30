@@ -6,6 +6,8 @@
 
   import { Modal, Content, Trigger } from "sv-popup";
 
+  import playIcon from "/assets/icons/play.png";
+
   let closed = false;
 
   const setSong = (source, song) => {
@@ -25,14 +27,22 @@
         <div class="w-fit">
           <h2 class="text-3xl mb-2">{capitalise(source.name)}</h2>
           <div class="border-t-2 border-white p-3 w-full">
-            <ul class="ml-1 text-xl flex">
+            <ul class="ml-1 text-xl flex flex-col">
               {#each Object.values(source.songs) as song}
                 <li
-                  class="mb-2 cursor-pointer song transition-transform hover:scale-105 flex"
+                  class="mb-2 cursor-pointer song transition-transform hover:scale-105 h-fit flex"
                   on:click={() => setSong(source.name, song.name)}
                   on:keypress={() => setSong(source.name, song.name)}
                 >
-                  <span class="h-[1.2em] m-auto">{capitalise(song.name)}</span>
+                  <div class="h-full w-fit mx-2">
+                    <img
+                      src={playIcon}
+                      alt="Play"
+                      class="h-[1em] w-[1em] mt-[0.1em]"
+                    />
+                  </div>
+
+                  <div class="">{capitalise(song.name)}</div>
                 </li>
               {/each}
             </ul>
@@ -52,18 +62,3 @@
     </div>
   </Trigger>
 </Modal>
-
-<style>
-  .song::before {
-    content: "";
-    height: 1em;
-    width: 1em;
-    display: inline-block;
-    margin: auto 0.5em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-image: url("../icons/play.png");
-    vertical-align: inherit;
-  }
-</style>
