@@ -5,12 +5,12 @@
   export let volume: number;
 
   const outlineUrl = new URL(
-    `../../../assets/img/outline/${$currentSong.source}/${name}.png`,
+    `../../../assets/imgs/outline/${$currentSong.source}/${name}.png`,
     import.meta.url
   ).href;
 
   const solidUrl = new URL(
-    `../../../assets/img/solid/${$currentSong.source}/${name}.png`,
+    `../../../assets/imgs/solid/${$currentSong.source}/${name}.png`,
     import.meta.url
   ).href;
 </script>

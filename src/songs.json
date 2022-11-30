@@ -1,4 +1,46 @@
 {
+  "outer_wilds": {
+    "name": "outer_wilds",
+    "songs": {
+      "travelers": {
+        "name": "travelers",
+        "artist": {
+          "name": "Andrew Prahlow",
+          "link": "http://www.andrewprahlow.com/"
+        },
+        "tracks": [
+          {
+            "name": "drums",
+            "type": "solo"
+          },
+          {
+            "name": "whistling",
+            "type": "solo"
+          },
+          {
+            "name": "banjo",
+            "type": "solo"
+          },
+          {
+            "name": "harmonica",
+            "type": "solo"
+          },
+          {
+            "name": "flute",
+            "type": "solo"
+          },
+          {
+            "name": "piano",
+            "type": "solo"
+          },
+          {
+            "name": "stranger",
+            "type": "solo"
+          }
+        ]
+      }
+    }
+  },
   "sea_of_thieves": {
     "name": "sea_of_thieves",
     "songs": {
@@ -42,46 +84,86 @@
             "type": "backing"
           }
         ]
-      }
-    }
-  },
-  "outer_wilds": {
-    "name": "outer_wilds",
-    "songs": {
-      "travelers": {
-        "name": "travelers",
+      },
+      "who_shall_not_be_returning": {
+        "name": "who_shall_not_be_returning",
         "artist": {
-          "name": "Andrew Prahlow",
-          "link": "http://www.andrewprahlow.com/"
+          "name": "Robin Beanland",
+          "link": "https://twitter.com/TheRealBeano"
         },
         "tracks": [
           {
-            "name": "drums",
-            "type": "solo"
-          },
-          {
-            "name": "whistling",
-            "type": "solo"
+            "name": "banjo",
+            "type": "lead"
           },
           {
             "name": "banjo",
-            "type": "solo"
+            "type": "backing"
           },
           {
-            "name": "harmonica",
-            "type": "solo"
+            "name": "concertina",
+            "type": "lead"
           },
           {
-            "name": "flute",
-            "type": "solo"
+            "name": "concertina",
+            "type": "backing"
           },
           {
-            "name": "piano",
-            "type": "solo"
+            "name": "drum",
+            "type": "lead"
           },
           {
-            "name": "stranger",
-            "type": "solo"
+            "name": "drum",
+            "type": "backing"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "lead"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "backing"
+          }
+        ]
+      },
+      "ride_of_the_valkyries": {
+        "name": "ride_of_the_valkyries",
+        "artist": {
+          "name": "Robin Beanland",
+          "link": "https://twitter.com/TheRealBeano"
+        },
+        "tracks": [
+          {
+            "name": "banjo",
+            "type": "lead"
+          },
+          {
+            "name": "banjo",
+            "type": "backing"
+          },
+          {
+            "name": "concertina",
+            "type": "lead"
+          },
+          {
+            "name": "concertina",
+            "type": "backing"
+          },
+          {
+            "name": "drum",
+            "type": "lead"
+          },
+          {
+            "name": "drum",
+            "type": "backing"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "lead"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "backing"
           }
         ]
       }
