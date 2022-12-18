@@ -28,7 +28,7 @@
           <h2 class="text-3xl mb-2">{capitalise(source.name)}</h2>
           <div class="border-t-2 border-white p-3 w-full">
             <ul class="ml-1 text-xl flex flex-col">
-              {#each Object.values(source.songs) as song}
+              {#each Object.values(source.songs).sort( (a, b) => a.name.localeCompare(b.name) ) as song}
                 <li
                   class="mb-2 cursor-pointer song transition-transform hover:scale-105 h-fit flex"
                   on:click={() => setSong(source.name, song.name)}

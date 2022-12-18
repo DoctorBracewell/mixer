@@ -166,6 +166,47 @@
             "type": "backing"
           }
         ]
+      },
+      "we_shall_sail_together": {
+        "name": "we_shall_sail_together",
+        "artist": {
+          "name": "Robin Beanland",
+          "link": "https://twitter.com/TheRealBeano"
+        },
+        "tracks": [
+          {
+            "name": "banjo",
+            "type": "lead"
+          },
+          {
+            "name": "banjo",
+            "type": "backing"
+          },
+          {
+            "name": "concertina",
+            "type": "lead"
+          },
+          {
+            "name": "concertina",
+            "type": "backing"
+          },
+          {
+            "name": "drum",
+            "type": "lead"
+          },
+          {
+            "name": "drum",
+            "type": "backing"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "lead"
+          },
+          {
+            "name": "hurdy_gurdy",
+            "type": "backing"
+          }
+        ]
       }
     }
   }
