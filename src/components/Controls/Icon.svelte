@@ -8,5 +8,5 @@
 <img
   alt={iconName}
   src={iconUrl}
-  class="control-button cursor-pointer h-9 transition-transform hover:scale-110"
+  class="control-button h-9 transition-transform hover:scale-110"
 />

@@ -8,6 +8,6 @@
   const handleClick = () => forEachTrack(tracks, (track) => track.toggle());
 </script>
 
-<div on:click={handleClick}>
+<button on:click={handleClick}>
   <Icon iconName="switch" />
-</div>
+</button>
