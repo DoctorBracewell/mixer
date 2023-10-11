@@ -31,6 +31,6 @@
   };
 </script>
 
-<div on:click={handleClick}>
+<button on:click={handleClick}>
   <Icon iconName={muted ? "unmute" : "mute"} />
-</div>
+</button>

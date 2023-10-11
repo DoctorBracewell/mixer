@@ -13,6 +13,6 @@
     );
 </script>
 
-<div on:click={handleClick}>
+<button on:click={handleClick}>
   <Icon iconName="shuffle" />
-</div>
+</button>

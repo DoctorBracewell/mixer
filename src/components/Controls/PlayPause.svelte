@@ -11,6 +11,6 @@
   };
 </script>
 
-<div on:click={handleClick}>
+<button on:click={handleClick}>
   <Icon iconName={tracks.every((track) => track.playing) ? "pause" : "play"} />
-</div>
+</button>
