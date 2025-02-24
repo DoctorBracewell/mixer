@@ -5,6 +5,6 @@
       This may take a short while on your first time loading a song or after you
       have cleared your cache.
     </span>
-    <span class="loader" />
+    <span class="loader"></span>
   </p>
 </div>

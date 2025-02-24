@@ -4,6 +4,6 @@
   const handleClick = () => appStarted.set(true);
 </script>
 
-<div on:click={handleClick} class="flex h-screen w-full">
+<div onclick={handleClick} class="flex h-screen w-full">
   <p class="text-5xl md:text-9xl m-auto cursor-pointer">Click To Start</p>
 </div>

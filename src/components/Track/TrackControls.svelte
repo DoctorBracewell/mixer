@@ -3,12 +3,16 @@
   import { onDestroy } from "svelte";
   import TrackImage from "./TrackImage.svelte";
 
-  // Include the track as a prop and start playing it when this component is loaded (not necesarily mounted)
-  export let track: Track;
+  interface Props {
+    // Include the track as a prop and start playing it when this component is loaded (not necesarily mounted)
+    track: Track;
+  }
+
+  let { track }: Props = $props();
   track.togglePlaying();
 
   // Subscribe to changes in the volume store and store in a local variable
-  let volume;
+  let volume = $state();
   const unsubscribe = track.volumeStore.subscribe((value) => (volume = value));
 
   // Don't forget to unsubscribe!
@@ -39,8 +43,8 @@
     {/if}
 
     <div
-      on:click={handleToggleMute}
-      on:keypress={handleToggleMute}
+      onclick={handleToggleMute}
+      onkeypress={handleToggleMute}
       class="relative top-0 left-0 h-60 w-60"
     >
       <TrackImage name={track.name} {volume} />
@@ -53,7 +57,7 @@
         min="0"
         max="1"
         step="0.01"
-        on:input={handleVolumeChange}
+        oninput={handleVolumeChange}
         value={volume}
       />
 

@@ -3,11 +3,15 @@
   import { forEachTrack } from "../../utils";
   import Icon from "./Icon.svelte";
 
-  export let tracks: Track[];
+  interface Props {
+    tracks: Track[];
+  }
+
+  let { tracks }: Props = $props();
 
   const handleClick = () => forEachTrack(tracks, (track) => track.toggle());
 </script>
 
-<div on:click={handleClick}>
+<div onclick={handleClick}>
   <Icon iconName="switch" />
 </div>

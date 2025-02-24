@@ -5,7 +5,11 @@
   import Shuffle from "./Shuffle.svelte";
   import Switch from "./Switch.svelte";
 
-  export let tracks: Track[];
+  interface Props {
+    tracks: Track[];
+  }
+
+  let { tracks = $bindable() }: Props = $props();
 </script>
 
 <div class="mx-auto my-10 md:my-2 flex w-5/6 md:w-1/2 justify-evenly z-50">

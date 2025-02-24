@@ -1,8 +1,12 @@
 <script lang="ts">
-  export let iconName: string;
+  interface Props {
+    iconName: string;
+  }
 
-  $: iconUrl = new URL(`../../../assets/icons/${iconName}.png`, import.meta.url)
-    .href;
+  let { iconName }: Props = $props();
+
+  let iconUrl = $derived(new URL(`../../../assets/icons/${iconName}.png`, import.meta.url)
+    .href);
 </script>
 
 <img

@@ -3,7 +3,11 @@
   import { forEachTrack } from "../../utils";
   import Icon from "./Icon.svelte";
 
-  export let tracks: Track[];
+  interface Props {
+    tracks: Track[];
+  }
+
+  let { tracks = $bindable() }: Props = $props();
 
   const handleClick = () => {
     forEachTrack(tracks, (track) => track.togglePlaying());
@@ -11,6 +15,6 @@
   };
 </script>
 
-<div on:click={handleClick}>
+<div onclick={handleClick}>
   <Icon iconName={tracks.every((track) => track.playing) ? "pause" : "play"} />
 </div>

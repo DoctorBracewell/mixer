@@ -4,7 +4,11 @@
   import type { Track } from "../tracks";
   import { onDestroy } from "svelte";
 
-  export let tracks: Track[];
+  interface Props {
+    tracks: Track[];
+  }
+
+  let { tracks = $bindable() }: Props = $props();
 
   onDestroy(() => {
     for (const track of tracks) {
@@ -17,9 +21,9 @@
   <ControlBar bind:tracks />
 
   <div class="flex-wrap flex justify-center flex-grow">
-    {#each tracks as track}
+    {#each tracks as _, i}
       <div class="inline-block justify-self-center p-10">
-        <TrackControls bind:track />
+        <TrackControls track={tracks[i]} />
       </div>
     {/each}
   </div>

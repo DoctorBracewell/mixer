@@ -1,8 +1,12 @@
 <script lang="ts">
   import { currentSong } from "../../stores";
 
-  export let name: string;
-  export let volume: number;
+  interface Props {
+    name: string;
+    volume: number;
+  }
+
+  let { name, volume }: Props = $props();
 
   const outlineUrl = new URL(
     `../../../assets/imgs/outline/${$currentSong.source}/${name}.png`,

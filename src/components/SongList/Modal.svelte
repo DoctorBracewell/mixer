@@ -8,7 +8,7 @@
 
   import playIcon from "/assets/icons/play.png";
 
-  let closed = false;
+  let closed = $state(false);
 
   const setSong = (source, song) => {
     $currentSong = new Song(source, song);
@@ -31,8 +31,8 @@
               {#each Object.values(source.songs) as song}
                 <li
                   class="mb-2 cursor-pointer song transition-transform hover:scale-105 h-fit flex"
-                  on:click={() => setSong(source.name, song.name)}
-                  on:keypress={() => setSong(source.name, song.name)}
+                  onclick={() => setSong(source.name, song.name)}
+                  onkeypress={() => setSong(source.name, song.name)}
                 >
                   <div class="h-full w-fit mx-2">
                     <img
@@ -54,8 +54,8 @@
   <Trigger>
     <div
       class="mr-3 mt-3 md:mr-6 md:mt-6 border-2 border-white rounded-md p-2 md:p-4"
-      on:click={() => (closed = false)}
-      on:keypress={() => (closed = false)}
+      onclick={() => (closed = false)}
+      onkeypress={() => (closed = false)}
     >
       Now Playing:
       <span class="underline">{capitalise($currentSong.song)}</span>
